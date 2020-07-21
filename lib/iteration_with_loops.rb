@@ -8,6 +8,6 @@ def join_nested_strings(aoa)
     end
     index_counter += 1
   end
-  binding.pry
   simplify_it.join(' ')
 end
+binding.pry
