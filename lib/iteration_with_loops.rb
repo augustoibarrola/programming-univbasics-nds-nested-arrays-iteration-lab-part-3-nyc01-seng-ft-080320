@@ -1,13 +1,19 @@
-def join_nested_strings(src)
-  penultimate_array_before_string_conversion = Array.new
-  row_index = 0
-  while row_index < src.count do
+
+def join_nested_strings(mixed_data)
+  final_array_of_strings_to_be = Array.new
+  row_counter = 0
+  while row_counter < mixed_data.count do
     index_counter = 0
-    if src[row_index][index_counter].type == String do
-      penultimate_array_before_string_conversion << src[row_index][index_counter]
-      index_counter += 1
+    while index_counter < mixed_data[row_counter].count
+      if mixed_data[row_counter][index_counter].is_a? String.class
+        delete_array = mixed_data[row_counter][index_counter]
+        delete_array.delete_at(index_counter)
+        index_counter += 1
+      else
+        index_counter += 1
+      end
     end
-    row_index +=1
+    row_counter +=1
   end
-  penultimate_array_before_string_conversion.join(" ")
+  final_array_of_strings_to_be.flatten.join(" ")
 end
